@@ -3,6 +3,6 @@
 and returns their sum as a float."""
 
 
-def add(a: int, b: int) -> float:
+def add(a: float, b: float) -> float:
     """add 2 int and  return float"""
     return a + b
