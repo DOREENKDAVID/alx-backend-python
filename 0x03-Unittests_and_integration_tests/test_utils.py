@@ -60,21 +60,23 @@ class TestMemoize(unittest.TestCase):
         to avoid redundant computations. """
 
         class TestClass:
+            """test class to text memoise"""
             def a_method(self):
+                """a method that returns when on ly called once"""
                 return 42
 
             @memoize
             def a_property(self):
+                """a method that returns same results when called twice"""
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42)
-        as mock_method:
+        with patch.object(TestClass, 'a_method', return_value=42) as mock:
             obj = TestClass()
 
             results1 = obj.a_property
             results2 = obj.a_property
 
-            mock_method.assert_called_once()
+            mock.assert_called_once()
 
             self.assertEqual(results1, 42)
             self.assertEqual(results2, 42)
