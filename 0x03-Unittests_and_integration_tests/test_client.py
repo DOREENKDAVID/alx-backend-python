@@ -12,9 +12,10 @@ from fixtures import TEST_PAYLOAD
 
 class TestGithubOrgClient(unittest.TestCase):
     """test a A Githib org client"""
+
     @parameterized.expand([
-        ("google",),
-        ("abc",),
+        ('google'),
+        ('abc')
         ])
     @patch('client.get_json')
     def test_org(self, org_name, mock_get_json):
